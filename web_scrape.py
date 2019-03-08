@@ -1,4 +1,5 @@
 import requests
+url = "https://icanhazdadjoke.com/"
 
-request = requests.get("http://www.google.com")
+request = requests.get(url)
 print(request.content)

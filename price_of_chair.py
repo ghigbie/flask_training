@@ -3,10 +3,11 @@ from bs4 import BeautifulSoup
 
 url = "https://www.johnlewis.com/john-lewis-partners-santino-10-12-seater-extending-dining-table-solid-oak/p3945216"
 target_class = "price price--large"
+target_id = ""
 
 response = requests.get(url)
 content = response.content
 soup = BeautifulSoup(content, 'html.parser')
-element = soup.find_all("p", {"class" : target_class} )
-print(f"The price of the table (not chair is {element.text}")
+element = soup.find(class_=target_class).get_text()
+print(f"The price of the table (not chair) is {element}")
 
